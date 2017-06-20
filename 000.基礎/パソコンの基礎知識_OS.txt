@@ -1,0 +1,3 @@
+OS: Windows 10 Pro
+プロセッサ: Intel(R) Core(TM) i7-4650U CPU @ 1.70 GHz 2.30 GHz
+RAM: 8.00 GB
