@@ -2,7 +2,6 @@
 
 // 多次元、連想配列の要素で並び替えを行うプログラム。
 // 開始と終了の日時をlog.txtに保存する。
-// 参考：http://qiita.com/tadasuke/items/e7be0d214e02105ab6d8
 
 function hairetu_sort(&$target, $target_key){
     $array = array();
