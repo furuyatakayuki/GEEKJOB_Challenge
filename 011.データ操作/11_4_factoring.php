@@ -2,6 +2,7 @@
 
 function factoring($num, $fac_list, $i = 0, $list = array()){
     if(($fac_list[$i] >= 10) || ($num == 1)){
+        //結果表示
         $base = $num;
         foreach($list as $value){
             $base *= $value;
