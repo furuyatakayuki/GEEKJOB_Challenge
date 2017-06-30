@@ -1,0 +1,45 @@
+<table border="1" cellpadding="5">
+
+<?php
+
+// データベース接続用。ユーザ定義関数のmysql_acces()によりpdoオブジェクトを取得。
+require_once './00_mysql_acces.php';
+
+$sql_1 = 'delete from profiles where name = :value';
+$sql_2 = 'select * from profiles';
+
+$pdo_obj = mysql_acces();
+
+$pdo_st = $pdo_obj->prepare($sql_1);
+$pdo_st->bindValue(':value', '佐藤 実');
+$pdo_st->execute();
+
+$pdo_st = $pdo_obj->prepare($sql_2);
+$pdo_st->execute();
+
+$datas = $pdo_st->fetchAll(PDO::FETCH_ASSOC);
+
+if($datas == null){
+    echo "<tr><td>一致するデータがありません</td></tr>";
+    exit();
+}
+
+echo "<tr>";
+foreach ($datas[0] as $key => $value) {
+    echo "<td>" . $key . "</td>";
+}
+echo "</tr>";
+
+foreach ($datas as $prf) {
+    echo "<tr>";
+    foreach ($prf as $key => $value) {
+        echo "<td>" . $value . "</td>";
+    }
+    echo "</tr>";
+}
+
+$pdo_obj = null;
+
+?>
+
+</table>
