@@ -15,8 +15,6 @@ $pdo_st->execute();
 
 $datas = $pdo_st->fetchAll(PDO::FETCH_ASSOC);
 
-$lim = count($datas[0]);
-
 echo "<tr>";
 foreach ($datas[0] as $key => $value) {
     echo "<td>" . $key . "</td>";
