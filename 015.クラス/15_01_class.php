@@ -4,9 +4,9 @@ class calc_test {
     public $a = 2;
     public $b = 3;
 
-    public function set_num(&$a_2, &$b_2){
-        $a_2 = 5;
-        $b_2 = 15;
+    public function set_num($num1, $num2){
+        $this->a = $num1;
+        $this->b = $num2;
     }
 
     public function echo_num($num1, $num2){
@@ -19,5 +19,5 @@ class calc_test {
 $test = new calc_test();
 
 $test->echo_num($test->a, $test->b);
-$test->set_num($test->a, $test->b);
+$test->set_num(10, 15);
 $test->echo_num($test->a, $test->b);
