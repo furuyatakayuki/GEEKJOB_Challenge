@@ -78,7 +78,7 @@ function search_result(){
     </form>
 
     <?php
-    if (isset($_POST['id'],$_POST['name'],$_POST['tell'],$_POST['age'],$_POST['birthday'])) { ?>
+    if (isset($_POST['id']) || isset($_POST['name']) || isset($_POST['tell']) || isset($_POST['age']) || isset($_POST['birthday'])) { ?>
         <table border="1" cellpadding="5">
         <?php search_result(); ?>
         </table>
