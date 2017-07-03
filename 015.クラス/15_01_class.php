@@ -1,6 +1,6 @@
 <?php
 
-class calc_test {
+class num_test {
     public $a = 2;
     public $b = 3;
 
@@ -14,9 +14,8 @@ class calc_test {
     }
 }
 
-
 // 以下確認用
-$test = new calc_test();
+$test = new num_test();
 
 $test->echo_num($test->a, $test->b);
 $test->set_num(10, 15);
