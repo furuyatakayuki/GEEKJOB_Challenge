@@ -1,0 +1,8 @@
+[preparation][€”õ]
+
+1.
+    create table i_user(userID int not null primary key auto_increment, name varchar(255), pass varchar(255));
+    insert into i_user(name, pass) values('test_name', 'password');
+
+2.
+    create table i_goods(goodsID int not null primary key auto_increment, goodsname varchar(255), stock int);
