@@ -1,0 +1,53 @@
+【巨大なソース修正 第二段階】
+
+■修正点
+◇記述系
+    ・[dbaccesUtil.php]の[delete_profile()]において、SQL文の定義を修正。
+    ・[dbaccesUtil.php]の[serch_all_profiles()]、[serch_profiles()]の"serch"を"search"に修正。これらの関数を利用していた[search_result.php]でも同様の修正。また、これらの関数内で利用していたローカル変数名に含まれる"seatch"を"search"に変更。
+    ・余分な空白や";"などの修正。
+        [該当箇所]
+        ・[scriptUtil.php]のex_typenum()内。[空白]
+        ・[insert.php]のmonthのfor文後。[;]
+        ・[insert_result.php]のトップへ戻る後。[空白]
+        ・[insert_confirm.php]。[空白]
+        ・[search.php]の<form>タグの初めと終わり。[インデント幅]
+        ・[search_result.php]のecho date()。[;]
+        ・[result_detail.php]において、[変更]、[削除]ボタンの"style="の前。[空白]
+        ・[update.php]のmonthのfor文後。[;]
+        ・[update.php]のhiddenフォーム後。[空白]
+        ・[delete.php]のボタンの"style="の前。[空白]
+    ・DB処理に失敗した際のエラー文後に<br>を挿入し、トップへ戻るが改行されるように修正。
+        [該当箇所]
+        ・[insert_result.php]
+        ・[update_result.php]
+        ・[delete_result.php]
+    ・[insert_confirm.php]の[登録画面に戻る]を[いいえ]に修正。入力項目が不足していた場合は[登録画面に戻る]に。
+    ・[update.php]の[詳細画面に戻る]のボタンサイズを修正。
+    ・[delete.php]の"以下の内容を削除～"の後に<br>を追加し、文言を変更。
+    ・[delete.php]の[詳細画面に戻る]の名称を[いいえ]に修正。
+
+
+◇動作系
+    ・[dbaccesUtil.php]の[search_profiles()]において、引き数が足りなかった場合、bindvalueでnullを代入し、テーブル値を正しく取得できない。各項目について入力があった場合のみbindvalueするように修正。
+    ・ボタンの追加。
+        [該当箇所]
+        ・[search.php]。[トップへ戻る]
+        ・[search_result.php]。[検索へ戻る]
+        ・[search_result.php]。[トップへ戻る]
+        ・[result_detail.php]。[検索結果へ戻る]
+        ・[update_result.php]。[詳細画面に戻る]
+        ・[delete_result.php]。[検索結果へ戻る]
+    ・[search_result.php]において、複合検索時、$_GET['type']のみ未定義の可能性があるのでnullを挿入し、未定義を回避。($_GET['name']、$_GET['year']は""が入力されるので未定義にはならない。)
+    ・[search_result.php]において、該当する検索結果がなかった場合、$resultが配列にならないため、foreach実行時に警告が出る。$resultが配列かどうか判定し、違う場合は該当なしが表示されるように修正。
+    ・ボタン押下時にidを送信しない状態を修正。
+        [該当箇所]
+        ・[search_result.php]。(変更ボタン、削除ボタン)
+        ・[update.php]。(詳細画面に戻る、以上の内容で更新を行う)
+        ・[delete.php]。(詳細画面に戻る、はい)
+    ・[search_result.php]において、検索条件をセッションに保存するように修正。
+    ・[update.php]において、日付が初期値として設定されないので修正。
+    ・直リンクされないように、hiddenフォームからの内容を確認し、正しい手順からのみ処理が行えるように修正。
+        [該当箇所]
+        ・[update_result.php]
+        ・[delete_result.php]
+    ・[dbaccesUtil.php]において、[update_profile()]関数を実装し、更新が行えるように修正。
